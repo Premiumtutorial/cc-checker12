@@ -1,0 +1,14 @@
+# Disable directory browsing
+Options -Indexes
+ErrorDocument 403 /error.html
+
+# Set default page to index.php
+DirectoryIndex index.php
+
+# Remove .php file extension
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.*)$ $1.php [L]
+
+ErrorDocument 404 /error.html
+
